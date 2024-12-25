@@ -1,0 +1,26 @@
+<section>
+  <h2>Messenger value: <%= @messenger_key %></h2>
+  <.greet messenger_key={@messenger_key}  receiver={@receiver} />
+  <h2>Receiver value: {@receiver}</h2>
+</section>
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Double</th>
+    <th>Triple</th>
+    <th>Power</th>
+  </tr>
+  <%= for number <- 1..10 do %>
+    <tr>
+      <td><%= number %></td>
+      <td><%= number + number %></td>
+      <td><%= number * 3 %></td>
+      <td><%= number * number %></td>
+    </tr>
+  <% end %>
+</table>
+<ul>
+  <%= for item <- @items do %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
