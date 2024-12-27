@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :hello, Hello.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "rich",
+  password: "reddpos",
   hostname: "localhost",
   database: "hello_dev",
   stacktrace: true,

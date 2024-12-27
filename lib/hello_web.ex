@@ -7,7 +7,7 @@ defmodule HelloWeb do
 
       use HelloWeb, :controller
       use HelloWeb, :html
-  
+
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
   on imports, uses and aliases.
@@ -15,7 +15,7 @@ defmodule HelloWeb do
   Do NOT define functions inside the quoted expressions
   below. Instead, define additional modules and import
   those modules here.
-  
+
   use is a convention: It expresses the idea that you're "using" the behavior of another module,
   which often involves adding a set of functions, configuration, and more.
   It doesn't just import functions, it brings in a context.

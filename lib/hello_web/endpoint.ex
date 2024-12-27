@@ -28,7 +28,7 @@ defmodule HelloWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
-    IO.puts "*** HelloWeb.Endpoint code_reloading ***"
+    IO.puts("*** HelloWeb.Endpoint code_reloading ***")
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
@@ -47,23 +47,25 @@ defmodule HelloWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
-  IO.puts "Plug.MethodOverride"
+  IO.puts("Plug.MethodOverride")
   plug Plug.MethodOverride
-  IO.puts "Plug.Head"
+  IO.puts("Plug.Head")
   plug Plug.Head
-  IO.puts "Plug.Session"
+  IO.puts("Plug.Session")
   plug Plug.Session, @session_options
-  IO.puts ":introspect"
-  plug :introspect # function name as atom
-  IO.puts "HelloWeb.Router"
-  plug HelloWeb.Router  # router.ex
+  IO.puts(":introspect")
+  # function name as atom
+  plug :introspect
+  IO.puts("HelloWeb.Router")
+  # router.ex
+  plug HelloWeb.Router
 
   def introspect(conn, _opts) do
-    IO.puts """
+    IO.puts("""
     Verb: #{inspect(conn.method)}
     Host: #{inspect(conn.host)}
     Headers: #{inspect(conn.req_headers)}
-    """
+    """)
 
     conn
   end

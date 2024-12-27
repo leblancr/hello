@@ -10,8 +10,10 @@ defmodule HelloWeb.Plugs.Locale do
   def call(%Plug.Conn{params: %{"locale" => loc}} = conn, _default) when loc in @locales do
     # print all conn items
     conn
-    |> Map.from_struct()  # Convert the struct to a map
-    |> Enum.each(fn {key, value} ->  # Iterate over the key-value pairs
+    # Convert the struct to a map
+    |> Map.from_struct()
+    # Iterate over the key-value pairs
+    |> Enum.each(fn {key, value} ->
       IO.puts("item: #{key} => #{inspect(value)}")
     end)
 
