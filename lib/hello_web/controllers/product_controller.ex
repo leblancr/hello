@@ -31,8 +31,11 @@ defmodule HelloWeb.ProductController do
     render(conn, :edit, product: product, changeset: changeset)
   end
 
+  # http://localhost:4000/products/
   def index(conn, _params) do
+    # Repo.all(Product)
     products = Catalog.list_products()
+    # :template with key/values passed in to html
     render(conn, :index, products: products)
   end
 
@@ -41,11 +44,16 @@ defmodule HelloWeb.ProductController do
     render(conn, :new, changeset: changeset)
   end
 
+  @doc """
+   /hello/products/:id
+  """
   def show(conn, %{"id" => id}) do
-	  product = id
-    # context functions
-    |> Catalog.get_product!()
-    |> Catalog.inc_page_views()
+    product =
+      id
+      # context functions
+      |> Catalog.get_product!()
+      # when a product is viewed
+      |> Catalog.inc_page_views()
 
     render(conn, :show, product: product)
   end

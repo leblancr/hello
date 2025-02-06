@@ -5,6 +5,9 @@
     <.link href={~p"/products/#{@product}/edit"}>
       <.button>Edit product</.button>
     </.link>
+    <.link href={~p"/cart_items?product_id=#{@product.id}"} method="post">
+      <.button>Add to cart</.button>
+    </.link>
   </:actions>
 </.header>
 
@@ -13,6 +16,11 @@
   <:item title="Description"><%= @product.description %></:item>
   <:item title="Price"><%= @product.price %></:item>
   <:item title="Views"><%= @product.views %></:item>
+  <:item title="Categories">
+    <ul>
+      <li :for={cat <- @product.categories}>{cat.title}</li>
+    </ul>
+  </:item>
 </.list>
 
 <.back navigate={~p"/products"}>Back to products</.back>
